@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}智能旅遊助手{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    {% block head_styles %}{% endblock %}
+</head>
+<body>
+    <div id="sidebar" class="sidebar">
+        <div class="sidebar-header">
+            <i class="bi bi-list" id="toggleSidebar" style="cursor:pointer;"></i>
+            <span class="title">智能旅遊助手</span>
+        </div>
+        <div class="nav-item">
+            <a href="{{ url_for('travel_plan.travel_plan_page') }}" class="nav-link">
+                <i class="bi bi-map nav-icon"></i>
+                <span class="nav-label">旅遊規劃</span>
+            </a>
+        </div>
+        <div class="nav-item">
+            <a href="{{ url_for('settings.settings_page') }}" class="nav-link">
+                <i class="bi bi-gear nav-icon"></i>
+                <span class="nav-label">設定</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="header">
+            <div class="user-avatar-container" id="avatar">
+                {% if user %}
+                    <img src="{{ user.avatar_url }}" class="user-avatar-img">
+                {% else %}
+                    <i class="bi bi-person-circle user-avatar-icon"></i> {% endif %}
+                <div class="dropdown" id="userDropdown">
+                    {% if user %}
+                        <div class="dropdown-item">{{ user.email }}</div>
+                        <div class="dropdown-item" onclick="window.location.href='{{ url_for('logout') }}'">登出</div>
+                    {% else %}
+                        <div class="dropdown-item" onclick="window.location.href='{{ url_for('login') }}'">登入</div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        
+        <!-- 主要內容 -->
+        <div style="padding: 1rem;">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/base.js') }}"></script>
+
+</body>
+</html>

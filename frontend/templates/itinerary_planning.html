@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% block title %}旅遊規劃助手{% endblock %}
+{% block head_styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/itinerary_planning.css')}}">
+{% endblock %}
+
+{% block content %}
+<div id="container">
+    <div id="chat-section">
+        <div id="chat-box">
+        </div>
+        <div id="chat-input">
+            <input type="text" id="user-input" class="form-control" placeholder="請輸入訊息...">
+            <button id="send-btn" class="btn send-button">→</button>
+        </div>
+    </div>
+
+    <div id="resizer"></div>
+
+    <div id="itinerary-panel">
+        <div class="tabs">
+            <div class="tab active" onclick="switchTab(0)">行程總欖</div>
+            <div class="tab" onclick="switchTab(1)">活動景點</div>
+            <div class="tab" onclick="switchTab(2)">住宿推薦</div>
+            <div class="tab" onclick="switchTab(3)">路線規劃</div>
+        </div>
+        <div class="tab-content" id="tab-0">
+            <div id="itinerary-placeholder" class="skeleton-container">
+                <div class="skeleton-line"></div>
+                <div class="skeleton-line"></div>
+                <div class="skeleton-line"></div>
+                <div class="skeleton-line"></div>
+                <div class="skeleton-line"></div>
+                <br>
+                <div class="skeleton-line" style="width: 80%; height: 8.5rem;"></div>
+                <div class="skeleton-line" style="width: 80%; height: 8.5rem;"></div>
+            </div>
+            
+             <div id="itinerary-content" style="display: none;">
+                <!-- 行程內容 -->
+             </div>
+        </div>
+        <div class="tab-content" id="tab-1" style="display: none;">
+            <div id="itinerary-placeholder" class="skeleton-container">
+                <div class="skeleton-line" style="width: 50%;"></div>
+                <div class="skeleton-line" style="width: 80%; height: 8.5rem;"></div>
+                <div class="skeleton-line"></div>
+                <div class="skeleton-line"></div>
+                <div class="skeleton-line" style="width: 50%;"></div>
+                <div class="skeleton-line" style="width: 80%; height: 8.5rem;"></div>
+                <div class="skeleton-line"></div>
+                <div class="skeleton-line"></div>
+            </div>
+        </div>
+        <div class="tab-content" id="tab-2" style="display: none;">
+            <div id="itinerary-placeholder" class="skeleton-container">
+                <div class="skeleton-line"></div>
+                <div class="skeleton-line" style="width: 80%; height: 15rem;"></div>
+                <div class="skeleton-line" style="width: 60%;""></div>
+                <div class="skeleton-line" style="width: 80%;""></div>
+                <div class="skeleton-line" style="width: 60%;""></div>
+                <div class="skeleton-line" style="width: 80%;""></div>
+                <div class="skeleton-line" style="width: 60%;""></div>
+                <div class="skeleton-line" style="width: 80%;""></div>
+            </div>
+            
+             <div id="itinerary-content" style="display: none;">
+                <!-- 行程內容 -->
+             </div>
+        </div>
+        <div class="tab-content" id="tab-3" style="display: none;">
+            <div id="itinerary-placeholder" class="skeleton-container">
+                <div class="skeleton-line" style="width: 50%;"></div>
+                <div class="skeleton-line"></div>
+                <div class="skeleton-line" style="width: 80%; height: 17rem;"></div>
+                <div class="skeleton-line"></div>
+                <div class="skeleton-line"></div>
+                <div class="skeleton-line"></div>
+                <div class="skeleton-line"></div>
+            </div>
+        </div>
+        <br>
+        <button id="savePlanBtn" onclick="savePlan({{ plan.id | default('null') }})">儲存</button>`
+    </div>
+        
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/itinerary_planning.js') }}"></script>
+
+{% endblock %}

@@ -1,0 +1,141 @@
+/* 工具列樣式 */
+.tools {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    margin-bottom: 2rem;
+}
+
+.tools button {
+    padding: 0.5rem 1rem;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.tools button i {
+    margin-right: 5px;
+}
+
+
+/* 卡片網格樣式 */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 3rem;
+}
+
+.plan-card {
+    position: relative;
+}
+
+.card-content-wrapper{
+    position: relative; 
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.9s;
+    border: 2px solid black;
+    background-color: #f7f7f7;
+    padding-top: 56.25%;
+    height: 0;
+}
+
+.card-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.card-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: filter 0.3s;
+}
+
+.card-background.blurred {
+    filter: blur(2px);
+}
+
+.card-details {
+    text-align: left;
+    margin: 5px;
+    font-family: "Roboto", "Arial", sans-serif;
+    font-size: 0.8rem;
+    line-height: 0.6rem;
+    font-weight: 400;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/* 浮動操作按鈕樣式 */
+.floating-actions {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    display: none;
+    gap: 2rem;
+    z-index: 10;
+    justify-content: center;
+    align-items: center; 
+}
+
+.floating-actions button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0);
+    border: none;
+    cursor: pointer;
+    font-size: min(1.2rem, 3vw);
+    height: auto; 
+    padding: 0.8rem 1.5rem; 
+    transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.floating-actions button:hover {
+    color: rgb(162, 157, 157) !important;
+    transform: scale(1.02);
+}
+
+.floating-actions button i {
+    line-height: 1;
+}
+
+/* 無規劃提示樣式 */
+.no-plans-message {
+    text-align: center;
+    margin-top: 2rem;
+    color: #999;
+    display: none;
+}
+
+/* 響應式設計 */
+@media (max-width: 600px) {
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+    .tools {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .floating-actions {
+        flex-direction: row;
+        gap: 1rem;
+        font-size: min(1rem, 4vw);
+        padding: 0.6rem 1rem;
+    }
+    .floating-actions button {
+        font-size: min(1rem, 3.5vw);
+        padding: 0.5rem 1rem; 
+        height: auto;    
+    }
+}

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}旅遊規劃{% endblock %}
+{% block head_styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/travel_plan.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="tools">
+    <button onclick="createPlan()">
+        <i class="bi bi-plus-lg"></i>新增規劃
+    </button>
+</div>
+
+<div id="planContainer" class="card-grid">
+    <!-- 載入全部規劃 -->
+</div>
+
+<p class="no-plans-message"></p>
+
+<script src="{{ url_for('static', filename='js/travel_plan.js') }}"></script>
+
+{% endblock %}

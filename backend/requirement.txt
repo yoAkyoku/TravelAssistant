@@ -1,0 +1,11 @@
+fastapi
+uvicorn[standard]
+sqlalchemy
+asyncpg
+python-dotenv
+loguru
+pydantic
+typing_extensions
+langchain[standard]
+langchain-openai
+langgraph

@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% block title %}規劃總覽{% endblock %}
+{% block head_styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/plan.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="info-calendar-wrapper">
+    <div class="plan-card">
+      <h2>{{ plan.travel_theme | default('未命名計畫') }}</h2>
+      <p><strong>描述:</strong> {{ plan.description | default('無描述') }}</p>
+      <p><strong>出發日:</strong> {{ plan.start_date | default('未提供') }}</p>
+      <p><strong>出發地:</strong> {{ plan.departure_location | default('未提供') }}</p>
+      <p><strong>目的地:</strong> {{ plan.destination | default('未提供') }}</p>
+    </div>
+
+    <div class="calendar-box">
+      <iframe src="https://calendar.google.com/calendar/embed?src=primary" style="border: 0" width="600" height="400" frameborder="0" scrolling="no"></iframe>
+    </div>
+  </div>
+
+  <div class="itinerary-table">
+    <h4>詳細行程</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>日期 (Day)</th>
+          <th>位置</th>
+          <th>時間</th>
+          <th>類型</th>
+          <th>行程</th>
+          <th>備註</th>
+        </tr>
+      </thead>
+      <tbody>
+        {# 遍歷 plan.days (即 PlanDay 列表) #}
+        {% if plan.days %}
+          {% for day in plan.days %}
+            {% set day_index = loop.index %}
+            <tr>
+                <td colspan="6" style="background: #f9f9f9;">
+                  <strong>Day {{ day_index  }}</strong>
+                </td>
+            </tr>
+            {# 對於每一天，遍歷其 segments (即 PlanSegment 列表) #}
+            {% if day.segments %}
+              {% for segment in day.segments %}
+                {# 對於每個 segment，遍歷其 activities (即 Activity 列表) #}
+                {% if segment.activities %}
+                  {% for activity in segment.activities %}
+                    <tr>
+                      <td>{{ day.day | default('N/A') }} (Day {{ day_index  }})</td>
+                      <td>{{ activity.activity_location | default('N/A') }}</td>
+                      <td>{{ segment.time_slot | default('N/A') }}</td>
+                      <td>{{ activity.type | default('N/A') }}</td>
+                      <td>{{ activity.activity_name | default('N/A') }}</td>
+                      <td>{{ activity.notes | default('無') }}</td>
+                    </tr>
+                  {% endfor %}
+                {% else %}
+                  <tr><td colspan="6">Day {{ loop.parent.loop.index }} 的時間段 {{ segment.time_slot }} 沒有活動</td></tr>
+                {% endif %}
+              {% endfor %}
+            {% else %}
+              <tr><td colspan="6">Day {{ loop.index }} 沒有詳細行程段</td></tr>
+            {% endif %}
+          {% endfor %}
+        {% else %}
+          <tr>
+            <td colspan="6">目前沒有詳細行程規劃。</td>
+          </tr>
+        {% endif %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/plan.js') }}"></script>
+
+{% endblock %}
