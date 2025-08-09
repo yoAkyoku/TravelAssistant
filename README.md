@@ -3,9 +3,6 @@
 ## 設計目標
 智能旅遊助手旨在提供使用者個人化、自動化、互動式的旅遊規劃體驗。透過 AI 技術結合多種資料來源（景點資訊、天氣、交通、住宿等），幫助使用者從輸入偏好到完成行程安排，全流程地完成旅遊規劃，節省時間並提升決策效率。
 
-# Demo
-<video src="https://github.com/yoAkyoku/TravelAssistant/blob/master/Demo.mp4" controls width="640" height="auto"></video>
-[Demo](https://github.com/yoAkyoku/TravelAssistant/blob/master/Demo.mp4)
 ## 技術棧
 前端	Flask, HTML/CSS, JavaScript  
 後端	FastAPI, LangGraph, OpenAI API  
