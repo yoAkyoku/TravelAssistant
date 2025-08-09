@@ -1,6 +1,6 @@
 from flask import Flask, render_template
-from frontend.blueprints.travel_plan import plan_bp
-from frontend.blueprints.settings import settings_bp
+from blueprints.travel_plan import plan_bp
+from blueprints.settings import settings_bp
 
 app = Flask(__name__)
 app.register_blueprint(plan_bp)
@@ -21,4 +21,4 @@ def logout():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)

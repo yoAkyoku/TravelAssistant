@@ -1,10 +1,10 @@
 from fastapi import FastAPI 
 from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
-from backend.routers import travel_api
-from backend.schema import Base
-from backend.database import engine
-from backend.config import logger
+from routers import travel_api
+from schema import Base
+from database import engine
+from config import logger
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -32,7 +32,7 @@ app.add_middleware(
 )
 
 if __name__ == "__main__":
-    from backend.graph import create_graph
+    from graph import create_graph
     graph = create_graph()
 
     with open("workflow.png", "wb") as f:

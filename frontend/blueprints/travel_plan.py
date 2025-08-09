@@ -4,7 +4,7 @@ import json
 
 plan_bp = Blueprint("travel_plan", __name__, url_prefix="/travel_plan")
 
-FASTAPI_BASE_URL = "http://127.0.0.1:8000/api/travel"
+FASTAPI_BASE_URL = "http://backend:8000/api/travel"
 
 @plan_bp.route("/")
 def travel_plan_page():

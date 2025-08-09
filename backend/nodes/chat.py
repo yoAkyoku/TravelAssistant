@@ -1,6 +1,6 @@
-from backend.config import llm
-from backend.models import TravelAssistantState
-from backend.prompts import CHAT_PROMPT
+from config import llm
+from models import TravelAssistantState
+from prompts import CHAT_PROMPT
 
 
 async def chat_node(state: TravelAssistantState):

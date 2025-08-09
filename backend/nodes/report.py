@@ -1,7 +1,7 @@
 from langchain_core.messages import AIMessage
-from backend.prompts import ITINERARY_REPORT_PROMPT
-from backend.models import TravelAssistantState
-from backend.config import llm, logger
+from prompts import ITINERARY_REPORT_PROMPT
+from models import TravelAssistantState
+from config import llm, logger
 
 async def report_node(state: TravelAssistantState):
     logger.info("Report itinerary.")

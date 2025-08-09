@@ -1,5 +1,5 @@
 from langchain_core.prompts import ChatPromptTemplate
-from backend.models import ItineraryPlanning, CollectPreference
+from models import ItineraryPlanning, CollectPreference
 from langchain_core.output_parsers import PydanticOutputParser
 
 itinerary_parser = PydanticOutputParser(pydantic_object=ItineraryPlanning)

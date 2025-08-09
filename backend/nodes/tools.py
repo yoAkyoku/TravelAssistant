@@ -1,5 +1,5 @@
-from backend.models import AccommodationSearchInput, Accommodation
-from backend.config import logger
+from models import AccommodationSearchInput, Accommodation
+from config import logger
 from langchain_core.tools import tool
 from typing import List
 import requests

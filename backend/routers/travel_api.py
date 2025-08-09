@@ -1,12 +1,12 @@
 from fastapi import APIRouter, HTTPException, Depends, Request
 from fastapi.responses import StreamingResponse
 from contextlib import asynccontextmanager
-from backend.models import ChatRequest, ItineraryPlanning, PlanResponse, PlanUpdate
-from backend.graph import create_graph
-from backend.services.planning_service import TravelPlanningService
-from backend.config import logger
-from backend.schema import Plan, PlanDay, PlanSegment, Activity, Accommodation
-from backend.database import get_db
+from models import ChatRequest, ItineraryPlanning, PlanResponse, PlanUpdate
+from graph import create_graph
+from services.planning_service import TravelPlanningService
+from config import logger
+from schema import Plan, PlanDay, PlanSegment, Activity, Accommodation
+from database import get_db
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select, delete
 from sqlalchemy.orm import Session, joinedload, selectinload

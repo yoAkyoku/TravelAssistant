@@ -1,6 +1,6 @@
 from fastapi import Request
-from backend.models import ChatRequest
-from backend.config import logger
+from models import ChatRequest
+from config import logger
 import json
 
 class TravelPlanningService:

@@ -1,9 +1,9 @@
 from langchain_core.runnables import RunnableParallel
 from langchain_core.output_parsers import PydanticOutputParser
 from langchain_core.messages import AIMessage
-from backend.config import llm, logger
-from backend.models import TravelAssistantState, PlanningState, ItineraryPlanning
-from backend.prompts import ITINERARY_PLANNER_PROMPT, ITINERARY_MERGE_PROMPT
+from config import llm, logger
+from models import TravelAssistantState, PlanningState, ItineraryPlanning
+from prompts import ITINERARY_PLANNER_PROMPT, ITINERARY_MERGE_PROMPT
 import operator
 
 async def planning_draft(state: TravelAssistantState):

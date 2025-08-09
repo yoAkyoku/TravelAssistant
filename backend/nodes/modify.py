@@ -1,10 +1,10 @@
 from langchain.agents import initialize_agent, AgentType
 from langchain_core.output_parsers import PydanticOutputParser
 from langchain_core.messages import AIMessage
-from backend.config import llm, logger
-from backend.models import TravelAssistantState, ItineraryPlanning
-from backend.prompts import ITINERARY_MODIFY_PROMPT
-from backend.nodes.tools import ALL_TOOLS
+from config import llm, logger
+from models import TravelAssistantState, ItineraryPlanning
+from prompts import ITINERARY_MODIFY_PROMPT
+from nodes.tools import ALL_TOOLS
 
 agent = initialize_agent(ALL_TOOLS, llm, agent=AgentType.OPENAI_MULTI_FUNCTIONS, verbose=False)
 

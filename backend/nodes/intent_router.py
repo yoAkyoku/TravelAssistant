@@ -1,7 +1,7 @@
-from backend.config import llm
-from backend.prompts import INTENT_PROMPT
-from backend.models import TravelAssistantState
-from backend.config import logger
+from config import llm
+from prompts import INTENT_PROMPT
+from models import TravelAssistantState
+from config import logger
 
 
 async def intent_node(state: TravelAssistantState):

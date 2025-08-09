@@ -1,7 +1,7 @@
-from backend.config import llm
-from backend.models import UserPreferencesState, UserPreferences, TravelAssistantState, CollectPreference
-from backend.prompts import PREF_PROMPT
-from backend.config import logger
+from config import llm
+from models import UserPreferencesState, UserPreferences, TravelAssistantState, CollectPreference
+from prompts import PREF_PROMPT
+from config import logger
 from langchain_core.output_parsers import PydanticOutputParser
 from langchain_core.messages import AIMessage
 

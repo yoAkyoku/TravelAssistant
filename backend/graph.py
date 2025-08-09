@@ -1,12 +1,12 @@
 from langgraph.graph import StateGraph, END
 from langgraph.checkpoint.memory import MemorySaver
-from backend.models import TravelAssistantState
-from backend.nodes.chat import chat_node
-from backend.nodes.intent_router import intent_node
-from backend.nodes.preference import multi_turn_collector_node
-from backend.nodes.planner import generate_itinerary_node
-from backend.nodes.modify import modify_itinerary_node
-from backend.nodes.report import report_node
+from models import TravelAssistantState
+from nodes.chat import chat_node
+from nodes.intent_router import intent_node
+from nodes.preference import multi_turn_collector_node
+from nodes.planner import generate_itinerary_node
+from nodes.modify import modify_itinerary_node
+from nodes.report import report_node
 from typing import Literal
 import os
 
