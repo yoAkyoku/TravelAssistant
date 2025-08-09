@@ -60,3 +60,9 @@ project_root/
 
 ## Agent 工作流
 ![Agent workflow](workflow.png)
+
+## 運行方式
+```bash
+docker-compose up -d --build
+```
+**記得修改 .env 的 OPENAI_API_KEY**
