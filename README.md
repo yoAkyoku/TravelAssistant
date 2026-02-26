@@ -1,15 +1,11 @@
 # TravelAssistant
 智能旅遊助手 — 結合 LLM Agent Workflow 與工具調用的個人化旅遊規劃系統。
 
-[Demo](https://youtu.be/nY7TSJ2zA04)
-
----
-
 ## 📌 專案簡介
 
 TravelAssistant 是基於 Agent 架構的旅遊規劃系統，透過多階段推理流程，將使用者自然語言需求轉換為結構化偏好資訊，並生成多版本行程草案，整合住宿資訊後輸出最佳化旅遊計畫。
 
----
+[Demo](https://youtu.be/nY7TSJ2zA04)
 
 ## 🧠 系統架構概念
 
@@ -30,8 +26,6 @@ User Input  →  Preference Extraction  →  Draft Generation  →  Tool Calling
 5. **Plan Refinement** — 根據住宿位置優化行程動線。
 6. **Frontend Rendering** — 將最終行程與住宿資訊回傳前端展示。
 
----
-
 ## 🧩 技術棧
 
 ### Backend
@@ -50,8 +44,6 @@ User Input  →  Preference Extraction  →  Draft Generation  →  Tool Calling
 
 * Docker
 * Docker Compose
-
----
 
 ## 📁 專案結構
 
@@ -97,8 +89,6 @@ docker-compose up -d --build
 * Tool Calling 與模型推理分離
 * 動線優化
 * 可擴展主題式旅遊模組
-
----
 
 ## 📌 未來優化方向
 
