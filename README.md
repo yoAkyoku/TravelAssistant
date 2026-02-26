@@ -11,8 +11,6 @@ TravelAssistant 是基於 Agent 架構的旅遊規劃系統，透過多階段推
 
 水平流程展示整個 Agent Workflow：
 
-![Agent workflow](workflow.png)
-
 ```text
 User Input  →  Preference Extraction  →  Draft Generation  →  Tool Calling  →  Plan Refinement  →  Frontend Rendering
 ```
